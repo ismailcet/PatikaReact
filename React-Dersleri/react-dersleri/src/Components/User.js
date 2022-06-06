@@ -1,6 +1,6 @@
 import React from "react";
 
-const User = ({ name, surname, age, isLoggedIn }) => {
+const User = ({ name, surname, age, isLoggedIn, friends }) => {
   let controlLoggedIn = isLoggedIn;
   return (
     <>
@@ -9,6 +9,10 @@ const User = ({ name, surname, age, isLoggedIn }) => {
           ? `${name} ${surname} ${age} Welcome ! `
           : "You did not log in this site!"}
       </h1>
+
+      {friends.map((friend) => {
+        return <h4 key={friend.id}>{friend.name}</h4>;
+      })}
     </>
   );
 };
