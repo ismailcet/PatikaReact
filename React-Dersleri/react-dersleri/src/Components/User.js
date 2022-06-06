@@ -1,18 +1,11 @@
 import React from "react";
 
 const User = ({ name, surname, age, isLoggedIn }) => {
+  let controlLoggedIn = isLoggedIn;
   return (
     <>
-      <button
-        onClick={() => {
-          isLoggedIn = false;
-          console.log(isLoggedIn);
-        }}
-      >
-        Click Me
-      </button>
       <h1>
-        {isLoggedIn
+        {controlLoggedIn
           ? `${name} ${surname} ${age} Welcome ! `
           : "You did not log in this site!"}
       </h1>
