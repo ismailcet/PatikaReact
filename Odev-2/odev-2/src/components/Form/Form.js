@@ -14,12 +14,20 @@ function Form({ addTodos, todos }) {
     setInput(initValue);
     e.preventDefault();
   };
+  const checkAll = () => {
+    todos.map((item) => {
+      item.status == "active"
+        ? (item.status = "completed")
+        : (item.status = "active");
+    });
+    console.log(todos);
+  };
   return (
     <div className="input">
+      <button className="select-btn" onClick={() => checkAll()}>
+        <FontAwesomeIcon icon={faCheck} />
+      </button>
       <form onSubmit={submitInput}>
-        <button className="select-btn">
-          <FontAwesomeIcon icon={faCheck} />
-        </button>
         <input
           type="text"
           name="text"

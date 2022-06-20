@@ -9,3 +9,17 @@ a{
 li{
   list-style-type: none;
 }
+body{
+  background-color:#F5F5F5;
+}
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height:90vh;
+}
+.content{
+  width: 34.5rem;
+  
+}
