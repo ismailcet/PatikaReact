@@ -3,29 +3,32 @@ import React from "react";
 function Footer({ counter, filtered }) {
   const submitFilter = (e) => {
     e.preventDefault();
+    console.log(e.target.name);
     filtered(e.target.name);
   };
   return (
-    <div className="footer">
-      <p className="counter">{counter} items left</p>
-      <button className="filter-btn all" name="all" onClick={submitFilter}>
-        All
-      </button>
-      <button
-        name="active"
-        className="filter-btn active"
-        onClick={submitFilter}
-      >
-        Active
-      </button>
-      <button
-        name="completed"
-        className="filter-btn completed"
-        onClick={submitFilter}
-      >
-        Completed
-      </button>
-    </div>
+    <footer className="footer">
+      <p className="todo-count">
+        <strong>{counter}</strong> items left
+      </p>
+      <ul className="filters">
+        <li>
+          <button className="selected" name="all" onClick={submitFilter}>
+            All
+          </button>
+        </li>
+        <li>
+          <button name="active" className="" onClick={submitFilter}>
+            Active
+          </button>
+        </li>
+        <li>
+          <button name="completed" className="" onClick={submitFilter}>
+            Completed
+          </button>
+        </li>
+      </ul>
+    </footer>
   );
 }
 

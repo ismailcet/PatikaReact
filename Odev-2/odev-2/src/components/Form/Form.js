@@ -23,10 +23,8 @@ function Form({ addTodos, todos }) {
     console.log(todos);
   };
   return (
-    <div className="input">
-      <button className="select-btn" onClick={() => checkAll()}>
-        <FontAwesomeIcon icon={faCheck} />
-      </button>
+    <div>
+      <button className="toggle-all" onClick={() => checkAll()}></button>
       <form onSubmit={submitInput}>
         <input
           type="text"
@@ -34,6 +32,7 @@ function Form({ addTodos, todos }) {
           value={input.text}
           placeholder="What needs to be done ?"
           onChange={changeInput}
+          className="new-todo"
         />
       </form>
     </div>

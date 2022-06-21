@@ -10,23 +10,26 @@ function List({ todos, filter, deleteItem, checkItem }) {
         });
 
   return (
-    <div className="inputList">
-      <ul className="listItems">
-        {filtered.map((item, index) => {
-          return (
-            <li className="listItem" key={index}>
-              <button className="status-btn" onClick={() => checkItem(item)}>
-                <FontAwesomeIcon icon={faCheck} />
-              </button>
-              <span className="title">{item.text}</span>
-              <button className="select-btn" onClick={() => deleteItem(index)}>
-                X
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <ul className="todo-list">
+      {filtered.map((item, index) => {
+        return (
+          <li className="" key={index}>
+            <div className="view">
+              <button
+                className="toggle"
+                onClick={(e) => checkItem(e, item)}
+                type="checkbox"
+              ></button>
+              <label className="title">{item.text}</label>
+              <button
+                className="destroy"
+                onClick={() => deleteItem(index)}
+              ></button>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 

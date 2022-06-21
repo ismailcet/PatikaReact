@@ -10,18 +10,22 @@ function App() {
     todos.splice(index, 1);
     setTodos([...todos]);
   };
-  const checkItem = (index) => {
-    index.status == "active"
-      ? (index.status = "completed")
-      : (index.status = "active");
+  const checkItem = (e, item) => {
+    item.status == "active"
+      ? (item.status = "completed")
+      : (item.status = "active");
+    let completedItem = e.target.parentElement.parentElement;
+    completedItem.classList.contains("completed")
+      ? completedItem.classList.remove("completed")
+      : completedItem.classList.add("completed");
   };
   useEffect(() => {
     console.log(todos);
   }, [todos]);
   return (
-    <main className="main">
-      todos
-      <div className="content">
+    <section className="todoapp">
+      <h1>todos</h1>
+      <section className="main">
         <Form addTodos={setTodos} todos={todos} />
         <List
           todos={todos}
@@ -30,8 +34,8 @@ function App() {
           checkItem={checkItem}
         />
         <Footer counter={todos.length} filtered={setFilter} />
-      </div>
-    </main>
+      </section>
+    </section>
   );
 }
 
